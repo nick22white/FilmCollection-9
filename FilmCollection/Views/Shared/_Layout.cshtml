@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--Header-->
+    <title>Film Collection</title>
+    <link rel="shortcut icon" type="image/x-icon" href="~/favicon.png" />
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+</head>
+
+<body>
+    <center>
+        <!--Title from ViewBag-->
+        <h1>@ViewBag.Title</h1>
+        <!--Links to various pages-->
+        <a asp-action="">Home</a> |
+        <a asp-action="Podcasts">My Podcasts</a> |
+        <a asp-action="NewMovies">New Movies</a> |
+        <a asp-action="AllMovies">All Movies</a>
+        <br />
+        <br />
+        <br />
+    </center>
+    <!--Other Views are inserted here-->
+    @RenderBody()
+
+    <br />
+    <br />
+    <center><footer>Copyright 2021</footer></center>
+</body>
+
+</html>

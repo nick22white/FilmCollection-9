@@ -1,0 +1,49 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "List of Movies Approved by Joel";
+}
+
+<!--Calls models-->
+@model IEnumerable<FilmCollection.Models.NewMovie>
+
+<div>
+    <center>
+        <table class="table table-bordered table-striped table-sm">
+            <thead>
+                <!--Sets the table column names-->
+                <tr><th>Category</th><th>Title</th><th>Year</th><th>Director</th><th>Rating</th><th>Edited</th><th>Lent To:</th><th>Notes</th><th>Edit</th><th>Delete</th></tr>
+            </thead>
+
+            <!--Loops through the list of movies and puts it in a table-->
+            <tbody>
+                @foreach (FilmCollection.Models.NewMovie x in Model)
+                {
+                <tr>
+                    <td>@x.Category</td>
+                    <td>@x.Title</td>
+                    <td>@x.Year</td>
+                    <td>@x.Director</td>
+                    <td>@x.Rating</td>
+                    <td>@x.Edited</td>
+                    <td>@x.LentTo</td>
+                    <td>@x.Notes</td>
+                    <td>
+                        <form id="@x.MovieId" asp-action="EditMovie" method="post">
+                            <input type="hidden" asp-for="@x.MovieId" name="editId" />
+                            <button type="submit" class="btn-sm btn-info">Edit Movie</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form id="@x.MovieId" asp-action="Delete" method="post">
+                            <input type="hidden" asp-for="@x.MovieId" name="deleteId" />
+                            <button type="submit" class="btn-sm btn-danger">Delete Movie</button>
+                        </form>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </center>
+</div>

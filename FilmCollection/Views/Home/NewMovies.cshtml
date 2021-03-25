@@ -1,0 +1,73 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "New Movies";
+}
+
+<!--Calls models-->
+@model FilmCollection.Models.NewMovie
+
+<!--Form that takes the information for a movie-->
+<center>
+    <form asp-action="NewMovies" method="post">
+        <!--Validation-->
+        <div asp-validation-summary="All"></div>
+        <!--Category Field-->
+        <div>
+            <label asp-for="Category">Category:</label>
+            <input asp-for="Category" />
+        </div>
+
+        <!--Title Field-->
+        <div>
+            <label asp-for="Title">Title:</label>
+            <input asp-for="Title" />
+        </div>
+
+        <!--Year Field-->
+        <div>
+            <label asp-for="Year">Year:</label>
+            <input asp-for="Year" />
+        </div>
+
+        <!--Director Field-->
+        <div>
+            <label asp-for="Director">Director:</label>
+            <input asp-for="Director" />
+        </div>
+
+        <!--Rating Field-->
+        <div>
+            <label asp-for="Rating">Rating:</label>
+            <select asp-for="Rating">
+                <option value="">Select One:</option>
+                <option value="G">G</option>
+                <option value="PG">PG</option>
+                <option value="PG-13">PG-13</option>
+                <option value="R">R</option>
+            </select>
+        </div>
+
+        <div>
+            <label asp-for="Edited">Edited:</label>
+            <select asp-for="Edited">
+                <option value="">Select One:</option>
+                <option value=True>True</option>
+                <option value=False>False</option>
+            </select>
+        </div>
+
+        <div>
+            <label asp-for="LentTo">Lent To:</label>
+            <input asp-for="LentTo" />
+        </div>
+
+        <div>
+            <label asp-for="Notes">Notes:</label>
+            <input asp-for="Notes" />
+        </div>
+        <!--Submit button-->
+        <button type="submit">Add Movie</button>
+    </form>
+</center>
